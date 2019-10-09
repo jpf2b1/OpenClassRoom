@@ -1,0 +1,66 @@
+
+.messages{
+    background-color: #B8BBB4;
+    text-align:left;
+    border: 3px solid;
+    border-radius: 8px 8px 0 0px;
+    margin-bottom: 0;
+}
+.utilisateur{
+    margin: 0;    
+}
+#pseudo{
+    color: rgb(228, 19, 19);
+}
+.date{
+    color: #1208EA;
+    font-weight:bold;
+    padding-right: 90px;
+}
+.commentaire{
+    text-align: left;
+    background-color: yellow;
+    margin-top: 0px;
+    border-right:3px solid;
+    border-bottom: 3px solid;
+    border-left:3px solid;
+    min-height: 10px;
+    border-radius: 0px 0px 8px 8px;
+    margin-bottom: 8px;
+}
+div{
+    text-align:right;
+    margin:0 auto;
+    width : 350px; 
+}
+p{
+    text-align:right;
+    margin:0 auto;
+    width: 350px;
+}
+form{
+    text-align:right;
+    margin :0 ;
+    width: 300px;
+}
+input{
+    margin-bottom: 5px;
+}
+button{
+    color: greenyellow;
+}
+input[type=text] {
+   border: 2px dotted orange;
+}
+input[type=text]:nth-child(1) {
+   height: 100px;
+}
+body > div:nth-child(1) > form > p > input[type=submit]:nth-child(7){
+    background-color: greenyellow;
+    border-radius: 5px;
+    font-weight:bold;
+    padding: 5px;
+}
+body > p.messages > span > strong{
+    color: red;
+}
