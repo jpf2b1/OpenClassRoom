@@ -7,13 +7,16 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
+
+/**
+ * @Route("/advert")
+ */
 class AdvertController extends AbstractController{
 
     /**
      * Affiche page index
      * 
-     * @Route("/advert", name="oc_advert_index1")
-     * @Route("/", name="oc_advert_index")
+     * @Route("/", name="oc_advert_index1")
      *
      * @return void
      */
@@ -29,7 +32,7 @@ class AdvertController extends AbstractController{
     /**
      * Affiche une page avec le numero saisi dans l'url
      * 
-     * @Route("/advert/index/{id}",name="oc_advert_view")
+     * @Route("/index/{id}",name="oc_advert_view")
      *
      * @return void
      */
@@ -39,7 +42,7 @@ class AdvertController extends AbstractController{
 
  
     /**
-     * @Route("/advert/view/{year}/{slug}.{format}", name="oc_advert_view_slug", requirements={
+     * @Route("/view/{year}/{slug}.{format}", name="oc_advert_view_slug", requirements={
      * "year"= "\d{4}",
      * "format" = "html|xml"
      * }, defaults={"format"="html"})
