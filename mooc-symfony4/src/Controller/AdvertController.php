@@ -39,7 +39,10 @@ class AdvertController extends AbstractController{
 
  
     /**
-     * @Route("/advert/view/{year}/{slug}.{format}", name="oc_advert_view_slug")
+     * @Route("/advert/view/{year}/{slug}.{format}", name="oc_advert_view_slug", requirements={
+     * "year"= "\d{4}",
+     * "format" = "html|xml"
+     * })
      */
     public function viewSlug($slug, $year, $format)
     {
