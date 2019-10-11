@@ -17,13 +17,14 @@ class AdvertController extends AbstractController{
      * Affiche page index
      * 
      * @Route("/", name="oc_advert_index1")
+     * @Route("/{id}", requirements={"id" = "\d+"}, defaults={"page" = 1})
      *
      * @return void
      */
-    public function index(){
+    public function index($id){
         return $this->render(
             'Advert/index.html.twig', 
-            ['title'=>'ToTo Asticot']
+            ['title'=>'ToTo Asticot', 'advertId'=>'page '.$id]
         );
     }
 
@@ -32,7 +33,7 @@ class AdvertController extends AbstractController{
     /**
      * Affiche une page avec le numero saisi dans l'url
      * 
-     * @Route("/index/{id}",name="oc_advert_view")
+     * @Route("/index/{id}",name="oc_advert_view", requirements={"id" = "\d+")
      *
      * @return void
      */
