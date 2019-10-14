@@ -16,15 +16,14 @@ class AdvertController extends AbstractController{
     /**
      * Affiche page index
      * 
-     * @Route("/", name="oc_advert_index1")
-     * @Route("/{id}", requirements={"id" = "\d+"}, defaults={"page" = 1})
+     * @Route("/{id}", name="oc_advert_index_widthid", defaults={"id"=1}, requirements={"id"="\d{1,4}"})
      *
      * @return void
      */
     public function index($id){
         return $this->render(
             'Advert/index.html.twig', 
-            ['title'=>'ToTo Asticot', 'advertId'=>'page '.$id]
+            ['title'=>'ToTo Asticot', 'advertId'=>'page '.$id, 'id'=>$id]
         );
     }
 
@@ -33,11 +32,12 @@ class AdvertController extends AbstractController{
     /**
      * Affiche une page avec le numero saisi dans l'url
      * 
-     * @Route("/index/{id}",name="oc_advert_view", requirements={"id" = "\d+")
+     * @Route("/index",name="oc_advert_view_default", defaults={"id"=1})
+     * @Route("/index/{id}",name="oc_advert_view", defaults={"id"=1})
      *
      * @return void
      */
-    public function view($id = "Non renseigné"){
+    public function view($id){
         return new Response("<body>Affichage de l'annonce numero : ".$id."</body>");
     }
 
