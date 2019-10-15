@@ -8,15 +8,23 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 
-/**
- * @Route("/advert")
- */
+
 class AdvertController extends AbstractController{
+    /**
+     * Affiche page ACCUEIL
+     * 
+     * @Route("/", name="page_accueil")
+     *
+     * @return void
+     */
+    public function accueil(){
+        return new response("<body><h1>Mon accueil</h1><p>Page générer grace a NEW RESPONSE ET NON à L'AIDE DES TEMPLATES</p></body>");
+    }
 
     /**
      * Affiche page index
      * 
-     * @Route("/{id}", name="oc_advert_index_widthid", defaults={"id"=1}, requirements={"id"="\d{1,4}"})
+     * @Route("advert/{id}", name="oc_advert_index_widthid", defaults={"id"=1}, requirements={"id"="\d{1,4}"})
      *
      * @return void
      */
@@ -27,13 +35,11 @@ class AdvertController extends AbstractController{
         );
     }
 
-
-
     /**
      * Affiche une page avec le numero saisi dans l'url
      * 
-     * @Route("/index",name="oc_advert_view_default", defaults={"id"=1})
-     * @Route("/index/{id}",name="oc_advert_view", defaults={"id"=1})
+     * @Route("advert/index",name="oc_advert_view_default", defaults={"id"=1})
+     * @Route("advert/index/{id}",name="oc_advert_view", defaults={"id"=1})
      *
      * @return void
      */
@@ -43,7 +49,7 @@ class AdvertController extends AbstractController{
 
  
     /**
-     * @Route("/view/{year}/{slug}.{format}", name="oc_advert_view_slug", requirements={
+     * @Route("advert/view/{year}/{slug}.{format}", name="oc_advert_view_slug", requirements={
      * "year"= "\d{4}",
      * "format" = "html|xml"
      * }, defaults={"format"="html"})
