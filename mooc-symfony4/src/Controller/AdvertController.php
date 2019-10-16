@@ -49,7 +49,19 @@ class AdvertController extends AbstractController{
         // On récupère notre paramètre tag
         $tag = $request->query->get('tag');
 
-        return new Response("<body>Affichage de l'annonce numero : ".$id.", avec le tag : ".$tag."</body>");
+        if ($request->isMethod('POST')){
+
+            Return new Response ("<body>Un formulaire a été envoyé, on peut le traiter ici</body>");
+        }else{
+            return new Response("<body>
+            Affichage de l'annonce numero : ".$id.", avec le tag : ".$tag.
+            "<p>C'est une requête GET soumis a l'aide de l'url</p></body>"
+        );
+        }
+
+
+
+        
     }
 
  
