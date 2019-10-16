@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -38,13 +39,17 @@ class AdvertController extends AbstractController{
     /**
      * Affiche une page avec le numero saisi dans l'url
      * 
-     * @Route("advert/index",name="oc_advert_view_default", defaults={"id"=1})
-     * @Route("advert/index/{id}",name="oc_advert_view", defaults={"id"=1})
+     * @Route("advert/view",name="oc_advert_view_default", defaults={"id"=1})
+     * @Route("advert/view/{id}",name="oc_advert_view", defaults={"id"=1})
      *
      * @return void
      */
-    public function view($id){
-        return new Response("<body>Affichage de l'annonce numero : ".$id."</body>");
+    public function view($id, Request $request){
+
+        // On récupère notre paramètre tag
+        $tag = $request->query->get('tag');
+
+        return new Response("<body>Affichage de l'annonce numero : ".$id.", avec le tag : ".$tag."</body>");
     }
 
  
